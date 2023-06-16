@@ -15,4 +15,5 @@ function loadView ($viewName, $params = array()) {
     }
     require_once (VIEW_PATH . "/{$viewName}.php");
 
+    
 }
