@@ -60,17 +60,118 @@ header.header .dropdown-button {
     cursor: pointer;
 }
 
-header.header .dropdown-content {
-    background-color: #f9f9f9;
+header.header .dropdown {
+    position: relative;
 }
 
+header.header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    padding: 15px 0px ;
+    z-index: 100;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2)
+}
+
+header.header .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header.header .dropdown-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0px;
+}
+
+header.header .dropdown-content a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #222;
+    padding: 7px;
+    font-size: 1.1rem;
+}
+ 
+header.header .dropdown-content a:hover{
+    background-color: rgba(0, 0, 0, .1);
+}
+
+header.header .dropdown:hover{
+    background-color: rgba(0, 0, 0, .1);
+} 
+
 aside.sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-area: sidebar;
-    
+    box-shadow: -5px 0px 25px 1px rgba(0, 0, 0, .4);
+    background-color:  white;
+
+}
+
+aside.sidebar .menu {
+    width: 100%;
+    flex-grow: 1;
+}
+
+aside.sidebar .menu ul.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside.sidebar .menu li.nav-item {
+    padding: 10px 0px 10px 25px;
+    margin: 0;
+}
+
+aside.sidebar .menu li.nav-item:hover {
+   background-color: rgba(0, 0, 0, 0.1);
+}
+
+aside.sidebar .menu li.nav-item a {
+   font-size: 1.2rem;
+   color: #555;
+   text-decoration: none;
 }
 
 body.hide-sidebar aside.sidebar{
     display: none;
+}
+
+aside.sidebar .sidebar-widgets {
+    position: sticky;
+    bottom: 20px;
+    
+}
+
+aside.sidebar .sidebar-widget {
+    display: flex;
+    align-items: center;
+}
+
+aside.sidebar .sidebar-widget .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex:1;
+}
+
+aside.sidebar .sidebar-widget .icon {
+    font-size: 3.5rem;
+    margin: 2px 10px 2px 0px;   
+}
+
+.division {
+    widows: 80%;
+    border: solid 1px #eee;
+}
+
+aside.sidebar .info .main{
+    font-size: 2rem;
+
 }
 
 main.content{
@@ -78,5 +179,12 @@ main.content{
 }
 
 footer.footer{
+    display: flex;
+    align-items: center;
+    background-color:  #222;
+    color: #fff;
     grid-area: footer;
+    justify-content: flex-end;
+    padding-right:20px ;
+    font-size: 1.2rem;
 }
