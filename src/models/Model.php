@@ -3,7 +3,7 @@
 class Model
 {
     protected static $tableName = '';
-    protected static $columns = '';
+    protected static $columns = [];
     protected $values = [];
 
     function __construct($arr)
@@ -61,6 +61,18 @@ class Model
         } else {
             return $result;
         }
+    }
+
+    public function save() {
+        $sql = "INSERT INTO " . static::$tableName . " ("
+            . implode(",", static::$columns) . ") VALUES (";
+        foreach(static::$columns as $col) {
+            $sql .= static::getFormatedValue($this->$col) . ",";
+        }
+        $sql[strlen($sql) - 1] = ')';
+        $id = Database::executeSQL($sql);
+        $this->id = $id;
+
     }
 
     private static function getFilters($filters)

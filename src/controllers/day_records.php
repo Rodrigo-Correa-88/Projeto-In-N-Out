@@ -1,3 +1,8 @@
 <?php
+session_start();
+requireValidSession();
 
-loadTemplateView('day_records');
+$date = (new DateTime()) -> getTimestamp();
+$today = date("d \\d\\e M \\d\\e Y", $date);
+
+loadTemplateView('day_records', ['today'=> $today]);

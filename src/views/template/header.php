@@ -26,7 +26,14 @@
         <div class="spacer"></div>
         <div class="dropdown">
             <div class="dropdown-button">
-                <span class="ml-3">Usuário Mock</span>
+                <div class="avatar">    
+                <img src="<?= "http://www.gravatar.com/avatar.php?gravatar_id="
+                . md5(strtolower(trim($_SESSION['user']->email))) ?>" alt="user" width="75%"
+                height="75%">
+                </div>
+                <span class="ml-3">
+                    <?= $_SESSION['user'] -> name ?>
+                </span>
                 <i class="icofont-simple-down mx-2"></i>
             </div>
             <div class="dropdown-content">
